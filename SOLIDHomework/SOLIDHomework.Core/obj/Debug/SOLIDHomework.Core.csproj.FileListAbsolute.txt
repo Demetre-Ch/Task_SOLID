@@ -1,0 +1,6 @@
+C:\Users\Andrei_Urban@epam.com\Documents\Visual Studio 2012\Projects\SOLIDHomework\SOLIDHomework.Core\obj\Debug\SOLIDHomework.Core.csprojResolveAssemblyReference.cache
+C:\Users\urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework.Core\bin\Debug\SOLIDHomework.Core.dll
+C:\Users\urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework.Core\bin\Debug\SOLIDHomework.Core.pdb
+C:\Users\urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework.Core\obj\Debug\SOLIDHomework.Core.csprojResolveAssemblyReference.cache
+C:\Users\urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework.Core\obj\Debug\SOLIDHomework.Core.dll
+C:\Users\urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework.Core\obj\Debug\SOLIDHomework.Core.pdb
