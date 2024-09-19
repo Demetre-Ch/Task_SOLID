@@ -21,7 +21,7 @@ namespace SOLIDHomework.Core
         decimal CalculateDiscount(OrderItem orderItem);
     }
 
-    public class GlobalTaxCalculator():ITaxCalculator
+    public class GlobalTaxCalculator:ITaxCalculator
     {
         public decimal CalculateTax(decimal total)
         {
@@ -29,7 +29,7 @@ namespace SOLIDHomework.Core
         }
     }
     
-    public class USTaxCalculator():ITaxCalculator
+    public class USTaxCalculator:ITaxCalculator
     {
         public decimal CalculateTax(decimal total)
         {
@@ -37,7 +37,7 @@ namespace SOLIDHomework.Core
         }
     }
 
-    public class UnitDiscountCalculator():IDiscountCalculator
+    public class UnitDiscountCalculator:IDiscountCalculator
     {
         public decimal CalculateDiscount(OrderItem orderItem)
         {
@@ -50,7 +50,7 @@ namespace SOLIDHomework.Core
         }
     }
 
-    public class SpecialDiscountCalculator():IDiscountCalculator
+    public class SpecialDiscountCalculator:IDiscountCalculator
     {
         public decimal CalculateDiscount(OrderItem orderItem)
         {
@@ -80,7 +80,7 @@ namespace SOLIDHomework.Core
             this.globalTaxCalculator = globalTaxCalculator;
             this.unitDiscountCalculator = unitDiscountCalculator;
             this.specialDiscountCalculator = specialDiscountCalculator;
-            orderItems = new List<OrderItem>();
+            orderItems = new List<OrderItem>();     
         }
 
         public IEnumerable<OrderItem> OrderItems
