@@ -11,3 +11,4 @@ C:\Users\Andrei_Urban@epam.com\Dropbox\Trainings\01. Application architecture co
 C:\Users\Andrei_Urban@epam.com\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework\obj\Debug\SOLIDHomework.pdb
 c:\Users\Andrei_Urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework\bin\Debug\SOLIDHomework.exe.config
 c:\Users\Andrei_Urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework\obj\Debug\SOLIDHomework.exe
+C:\Users\demetre_chaligava\Downloads\Task_SOLID\SOLIDHomework\SOLIDHomework\obj\Debug\SOLIDHomework.exe

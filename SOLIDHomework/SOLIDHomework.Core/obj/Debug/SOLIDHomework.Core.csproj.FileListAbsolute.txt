@@ -4,3 +4,5 @@ C:\Users\urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHome
 C:\Users\urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework.Core\obj\Debug\SOLIDHomework.Core.csprojResolveAssemblyReference.cache
 C:\Users\urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework.Core\obj\Debug\SOLIDHomework.Core.dll
 C:\Users\urban\Dropbox\Trainings\01. Application architecture concepts\SOLIDHomework\SOLIDHomework.Core\obj\Debug\SOLIDHomework.Core.pdb
+C:\Users\demetre_chaligava\Downloads\Task_SOLID\SOLIDHomework\SOLIDHomework.Core\obj\Debug\SOLIDHomework.Core.dll
+C:\Users\demetre_chaligava\Downloads\Task_SOLID\SOLIDHomework\SOLIDHomework.Core\obj\Debug\SOLIDHomework.Core.pdb

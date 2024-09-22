@@ -15,28 +15,46 @@ namespace SOLIDHomework.Core
     //tips:
     //think about SRP, DI, OCP
     //maybe for each type of payment type make sense to have own Order-based class?
-    public class OrderService
+    public interface IPaymentService(
     {
-        public void Checkout(string username, ShoppingCart shoppingCart, PaymentDetails paymentDetails, bool notifyCustomer)
-        {
-            if (paymentDetails.PaymentMethod == PaymentMethod.CreditCard
-                || paymentDetails.PaymentMethod == PaymentMethod.OnlineOrder)
-            {
-                ChargeCard(paymentDetails, shoppingCart);
-            }
-            ReserveInventory(shoppingCart);
-            if (paymentDetails.PaymentMethod == PaymentMethod.OnlineOrder)
-            {
-                if (notifyCustomer)
-                {
-                    NotifyCustomer(username);
-                }
-            }
-            MyLogger logger = new MyLogger();
-            logger.Write("Success checkout");
+        void ProccessPayment(ShoppingCart shoppingCart, PaymentDetails paymentDetails);
+    }
+    public interface IPaymentService
+    {
+        string Charge(decimal amount, CreditCard cardDetails);
+    }
 
+
+    public interface INotificationService()
+    {
+        void NotifyCustomer(string message);
+    }
+
+    public interface ILogger()
+    {
+        private readonly string filePath;
+        public void Write(string text);
+    }
+
+    public class CreditCardPayment : IPaymentService
+    {
+        override ProccessPayment(ShoppingCart shoppingCart, PaymentDetails paymentDetails)
+        {
+            Console.WriteLine("Orderd By Credit Card ...")
         }
-        public void NotifyCustomer(string username)
+    }
+
+    public class OnlinePayment : IPaymentService 
+    {
+        override ProccessPayment(ShoppingCart shoppingCart, PaymentDetails paymentDetails)
+        {
+            Console.WriteLine("Orderd Online ...")
+        }
+    }
+
+    public class EmailNotificationService : INotificationService
+    {
+        public override NotifyCustomer(string username)
         {
             string customerEmail = new UserService().GetByUsername(username).Email;
             if (!String.IsNullOrEmpty(customerEmail))
@@ -51,16 +69,43 @@ namespace SOLIDHomework.Core
                 }
             }
         }
+    }
+
+    public class OrderService
+    {
+        private readonly IPaymentService _paymentService;
+        private readonly INotificationService _notificationService;
+        private readonly ILogger _logger;
+        private readonly IInventoryServices _inventoryServices;
+
+        public OrderService(IPaymentService paymentService, INotificationService notificationService, 
+            ILogger logger, IInventoryServices inventoryServices)
+        {
+            _paymentService = paymentService;
+            _notificationService = notificationService; 
+            _logger = logger;
+            _inventoryServices = inventoryServices;
+        }
+
+        public void Checkout(string username, ShoppingCart shoppingCart, PaymentDetails paymentDetails, bool notifyCustomer)
+        {
+            _paymentService.ProccessPayment();
+            ReserveInventory(shoppingCart);
+            if(notifyCustomer)
+            {
+                _notificationService.NotifyCustomer(username);
+            }
+            _logger.Write("Success checkout");
+
+        }
 
         public void ReserveInventory(ShoppingCart cart)
         {
             foreach (OrderItem item in cart.OrderItems)
             {
                 try
-                {
-                    InventoryService inventoryService = new InventoryService();
-                    inventoryService.Reserve(item.Code, item.Amount);
-
+                { 
+                    _inventoryServices.Reserve(item.Code, item.Amount);
                 }
                 catch (InsufficientInventoryException ex)
                 {
@@ -73,6 +118,14 @@ namespace SOLIDHomework.Core
             }
         }
         
+
+        /*I Have Issues Here, 
+         * I Wanted to use abstract class or interface instead of concrete PaymentFactory Class,
+         * So I added Changed It in PaymentFactory.cs as you can see in comment.
+         * but it got really messy and i dont know if it was even good idead at first :D
+         * So then I thought that meybe dependency is PaymentBase but I see its abstract, I have feeling that here is DI issue
+         * but i dont know where and how
+        */
         public void ChargeCard(PaymentDetails paymentDetails, ShoppingCart cart)
         {
             PaymentServiceType paymentServiceType;
@@ -104,7 +157,7 @@ namespace SOLIDHomework.Core
         }
     }
 
-    public class MyLogger
+    public class MyLogger:ILogger
     {
         private readonly string filePath;
         public MyLogger()
@@ -122,7 +175,6 @@ namespace SOLIDHomework.Core
             }
         }
     }
-
     public class OrderException : Exception
     {
         public OrderException(string message, Exception innerException)

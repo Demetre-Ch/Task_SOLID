@@ -3,8 +3,12 @@
     "",
     "\\SOLIDHomework",
     "\\SOLIDHomework.Core",
+    "\\SOLIDHomework.Core\\Model",
+    "\\SOLIDHomework.Core\\obj",
+    "\\SOLIDHomework.Core\\Payment",
+    "\\SOLIDHomework.Core\\Properties",
     "\\SOLIDHomework.Core\\Services"
   ],
-  "SelectedNode": "\\SOLIDHomework.Core\\ShoppingCart.cs",
+  "SelectedNode": "\\SOLIDHomework.Core\\Services\\InventoryService.cs",
   "PreviewInSolutionExplorer": false
 }
