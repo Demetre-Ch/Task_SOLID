@@ -15,8 +15,10 @@ namespace SOLIDHomework
         //Tip: that is good place for composition root
         static void Main(string[] args)
         {
+
+            //Do Not Pass Interfaces directly inside class and Pass them through initializating an object
             OrderService orderService = new OrderService();
-                ShoppingCart shoppingCart = new ShoppingCart("US");
+            ShoppingCart shoppingCart = new ShoppingCart("US");
             shoppingCart.Add(new OrderItem()
                 {
                     Amount = 1,
